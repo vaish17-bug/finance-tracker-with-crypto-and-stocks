@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Investments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>All Investments</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Asset</th>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Current Value</th>
+                <th>Purchase Date</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inv in investments %}
+                <tr>
+                    <td>{{ inv.id }}</td>
+                    <td>{{ inv.asset }}</td>
+                    <td>{{ inv.category }}</td>
+                    <td>{{ inv.amount }}</td>
+                    <td>{{ inv.current_value }}</td>
+                    <td>{{ inv.purchase_date }}</td>
+                    <td>{{ inv.notes }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('index') }}">Back to Dashboard</a>
+</body>
+</html>
+

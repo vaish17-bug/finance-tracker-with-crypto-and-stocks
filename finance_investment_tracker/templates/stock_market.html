@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Viewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Real-Time Stock Market Data</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Stock Symbol</th>
+                    <th>Price (INR)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for symbol, price in stock_data.items() %}
+                <tr>
+                    <td>{{ symbol }}</td>
+                    <td>₹{{ price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <footer>
+        <a href="{{ url_for('index') }}">← Back to Dashboard</a>
+    </footer>
+</body>
+</html>

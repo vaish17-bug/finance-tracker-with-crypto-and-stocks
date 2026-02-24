@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance & Investment Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header>
+            <h1>📊 Finance & Investment Tracker</h1>
+            <p>Track your financial journey and investments in one place.</p>
+        </header>
+
+        <!-- Financial Overview Section -->
+        <section class="overview">
+            <div class="section-title">
+                <h2>Financial Overview</h2>
+            </div>
+            <div class="overview-stats">
+                <div class="stat-item">
+                    <h3>Total Income</h3>
+                    <p>₹{{ total_income }}</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Total Expense</h3>
+                    <p>₹{{ total_expenses }}</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Net Savings</h3>
+                    <p>₹{{ net_savings }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investments Section -->
+        <section class="investments">
+            <div class="section-title">
+                <h2>Investment Summary</h2>
+            </div>
+            <div class="overview-stats">
+                <div class="stat-item">
+                    <h3>Total Investment Value</h3>
+                    <p>₹{{ total_investment_value }}</p>
+                </div>
+                <div class="stat-item">
+                    <h3>Profit / Loss</h3>
+                    <p>₹{{ investment_profit_loss }}</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Links -->
+        <section class="quick-access">
+            <div class="section-title">
+                <h2>Quick Access</h2>
+            </div>
+            <div class="quick-access-links">
+                <a href="/add_transaction" class="quick-link">➕ Add Transaction</a>
+                <a href="/view_transactions" class="quick-link">📄 View Transactions</a>
+                <a href="/add_investment" class="quick-link">➕ Add Investment</a>
+                <a href="/view_investments" class="quick-link">📈 View Investments</a>
+                <a href="/goal_tracker" class="quick-link">🎯 Goal Tracker</a>
+                <a href="/stock_market" class="quick-link">📊 Stock Market</a>
+                <a href="/cryptocurrency" class="quick-link">💹 Crypto Tracker</a>
+            </div>
+        </section>
+          
+        <!-- Charts Section -->
+<section class="charts">
+    <div class="section-title">
+        <h2>Visual Insights</h2>
+    </div>
+
+    <!-- Bar Chart: Income vs Expenses vs Net Savings -->
+    <canvas id="financeChart" width="400" height="200"></canvas>
+
+    <!-- Pie Chart: Investments -->
+    <canvas id="investmentChart" width="400" height="200" style="margin-top:30px;"></canvas>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const investCtx = document.getElementById('investmentChart').getContext('2d');
+    new Chart(investCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Total Investment Value', 'Profit/Loss'],
+            datasets: [{
+                data: [{{ total_investment_value | default(0, true) }}, {{ investment_profit_loss | default(0, true) }}],
+                backgroundColor: ['#8e44ad', '#d35400']
+            }]
+        },
+        options: { responsive: true }
+    });
+});
+</script>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2025 Finance & Investment Tracker | All rights reserved</p>
+        </footer>
+    </div>
+</body>
+</html>

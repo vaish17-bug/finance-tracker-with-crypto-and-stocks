@@ -1,0 +1,6 @@
+ID,Asset,Category,Amount,Current Value,Purchase Date,Notes
+1,Stock A,Stocks,10000.0,12000.0,2025-01-15,Invested in Stock A
+2,Mutual Fund B,Mutual Funds,5000.0,5500.0,2025-02-20,Invested in Mutual Fund B
+3,TATASTEEL.NS,Stock,9000.0,2000.0,2025-05-15,-
+4,AAPL,Stock,1000.0,1500.0,2025-04-28,apple stock
+5,AAPL,stock_market,1000.0,1500.0,2025-04-30,new stock

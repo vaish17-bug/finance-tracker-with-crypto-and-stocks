@@ -1,0 +1,6 @@
+ID,Type,Category,Amount,Date,Notes
+1,Income,hg,6768.0,2025-09-08,-
+2,Expense,food,500.0,2025-05-01,pizza
+3,Expense,rent,500.0,2025-05-21,pg
+4,Income,salary,30000.0,2025-04-30,salary of this month
+5,Expense,kitchen,20000.0,2025-08-05,i brought utensils

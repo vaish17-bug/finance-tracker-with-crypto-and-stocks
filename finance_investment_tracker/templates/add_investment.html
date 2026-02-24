@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Investment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+    <h1>Add New Investment</h1>
+    <form method="POST">
+        Asset: <input type="text" name="asset"><br><br>
+        Category: <input type="text" name="category"><br><br>
+        Amount: <input type="number" name="amount" step="0.01"><br><br>
+        Current Value: <input type="number" name="current_value" step="0.01"><br><br>
+        Purchase Date: <input type="date" name="purchase_date"><br><br>
+        Notes: <input type="text" name="notes"><br><br>
+        <button type="submit">Add Investment</button>
+    </form>
+    <br><a href="/">Back to Dashboard</a>
+</body>
+</html>
